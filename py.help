@@ -1,0 +1,59 @@
+## re
+#### 提取变量 
+* line=xA are B C
+* index=re.search(r'(.) are (.*?) .*',line,re.M|re.I)
+* index.group() -- A are B C
+* index.group(1) -- A
+* 结论:match如果一开始匹配不到,就返回none,search如果一开始匹配不到,就从下一个位置开始匹配
+* re.srearch(r'res(.+?)_(.+?).jpg','res1_wave.jpg') 非贪心模式下匹配名字中的关键字
+#### 替换
+* re.sub('content', 'style','geek_content.jpg') -- return geek_style.jpg
+* re.sub('.*\.', 'style','geek_content.jpg') -- return style.jpg 保持后缀不变替换文件名 
+* "content.jpg".replace("content","jpg")
+## pandas
+#### 创建数据
+* dates=pd.date_range('20130101', periods=6)
+* df=pd.DataFrame(np.arange(24).reshape((6,4)),index=dates, columns=['A','B','C','D'])
+#### 选择数据
+* df['A']
+* df.A
+* df[0:3]
+* df['20130102':'20130104'] 时间序列
+
+## future
+* from __future__ import absolute_import
+* from __future__ import division
+* from __future__ import print_function
+
+## os
+#### 后缀
+* os.path.exists(path)==>True or False
+* os.path.isdir(path)==>True or False
+* os.path.commonprefix(['/usr/lib','/usr/l'])==>'/usr/l'
+#### 确保文件夹存在
+```
+if os.path.exists("dir") is False: 
+	os.makedirs("dir")
+```
+## time
+#### 获取时间戳
+* ticks=time.time()==>1459994552.51  适合做计算,1970-2038年
+#### 格式化输出
+* time.strftime("%Y-%m-%d %H:%M:%S",time.localtime()) 
+* time.strftime("%a %b %d %H:%M:%S %Y",time.localtime())-->Sat Mar 28 22:24:24 2016 
+#### 格式化输出转换为时间戳
+* time.mktime(time.strptime(a, "%b %d %H:%M:%S %Y"))
+
+## string
+#### 后缀
+* "xxx.jPg".lower().endswith("jpg")==>ture
+* os.path.basename(path/a.jpg).split(".")[0]==>a
+* os.path.dirname(path)
+
+## itera
+#### sort
+* list("helloworld").sort()
+* sorted([os.path.listdir()])
+
+## temp
+* path = tempfile.mkdtemp()  返回临时路径

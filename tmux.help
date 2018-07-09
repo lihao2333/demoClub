@@ -1,0 +1,39 @@
+## session
+* tmux new -s <name-of-my-session>  create session
+* :new 创建session
+* <H> s  切换session
+* <H> D  选择detach的sesiion
+#### 查看
+* tmux ls
+* <H> s
+#### 恢复
+* tmux at [-t session]
+####  关闭
+* tmux kill-session -t [session]
+* tmux ls | grep : | cut -d. -f1 | awk '{print substr($1, 0, length($1)-1)}' | xargs kill 关闭所有
+####  重命名
+* <H> $
+## window
+* <H> n next
+* <H> p previous
+* <H> . move
+## pane
+* <H> ! 移动到新window
+* <H> <alt+dir>5个单位移动边缘
+* <H> o 选择当前窗口的下一个面板
+* <H> { 向前置换
+* <H> } 向后置换
+* <H> <alt+o> 逆时针旋转
+* <H> <C+o> 顺时针旋转
+## 复制
+* <H> [ 复制模式
+* <H> ]  粘贴模式
+* 空格选择 回车确定
+
+## 帮助
+* tmux list-keys 
+* tmux list-commands
+* tmux info
+* <H> ? 
+
+

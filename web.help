@@ -1,0 +1,22 @@
+## 调试
+* console.log("hi");
+
+## video
+* <video src='{{video_url}}' autoplay="autoplay" loop="loop" alt="图像还没有生成, 请稍等" width="320" height="320" /></video> 自动循环播放
+
+## template
+#### static
+* {%load staticfiles%}
+* src = '{%static 'image/logo.png'%}'
+* src = '/static/image/logo.png'
+#### media
+* src = {{content_url}}
+* src = '/media/user/content.jpg'
+
+#### url
+* <a href="{%url 'gen_video'%}"> Create Video</a>
+
+#### condition 
+* `{% if xxx and yyy %}...{% elif xxx %} ... {% else %} ...{% endif %}`
+* `{% for xx in xxx %}.{{xx.y}}..{% endfor %}`
+

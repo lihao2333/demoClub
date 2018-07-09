@@ -1,0 +1,28 @@
+## clone其他分支
+* git branch -a 先查看当前远端分支情况
+* git clone -b <branch> <url> clone 指定分支
+## tag
+* git tag
+* git tag -l "v1.8.5"
+* git tag -a v1.4 -m "my vesrion 1,4"
+* git show v1.4
+## sub module
+* git submodule add <url> <moduname>
+* git clone --recurse-submodules <url>
+* git submodule foreach git push origin master   递归push
+
+## 从所有提交中删除文件
+#### way1
+* git filter-branch --index-filter "git rm -rf --cached --ignore-unmatch file_name.txt" HEAD
+* rm -rf .git/refs/original/
+* git reflog expire --all
+* git gc --aggressive --prune
+* git filter-branch --prune-empty 删除空日志
+* git push --force origin <branch>
+#### way 2
+* echo "*.pyc">>.gitignore
+* git rm --cached -r *.pyc
+* git commit -m "delete *.pyc"
+* git push origin master
+
+

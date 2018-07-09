@@ -1,0 +1,39 @@
+## 删除
+* docker container rm xxx 删除一个终止状态的容器
+* docker container rm xxx -f 删除一个运行状态的容器
+* docker container prune 删除所有终止的容器
+* docker rmi xx 删除镜像
+## 查看
+* docker ps 查看所有运行中的容器
+* docker ps -a 查看所有容器
+* docker ps |less -S 用一行列出所有正在运行的容器
+* docker ps -l 列出最近一次启动的容器
+* docker images 列出所有镜像
+## 运行
+* docker run -it --rm --name mycontain -v .../Models:/Models -v `pwd`:/workspace -w workspace  xxx/xxx  bin/bash 
+* docker run -d  xx/xx 后台
+* docker run --rm --net=host --privileged -v /dev:/dev --name ncsdk -i -t ncsdk /bin/bash %因为涉及外设，挂载dev,并且赋予权限
+* docker run --rm -ti --entrypoint /bin/bash xxx -c ls 运行后自动执行
+* -p 8888:8888 将本地的8888端口挂载到容器的8888端口
+## 停止,启动,杀死,重启 
+* docker stop/start/kill/restart xxx
+* docker start -ai xxx
+## 插入
+* docker attach xxx 附着到运行中的容器
+* docker exec -ti xxx /bin/bash 进入正在运行的容器的内部, 同时运行bash 比attach更好用
+* docker exec -ti xxx python manage.py runserver 进入正在运行的容器的内部, 运行命令
+## 建立镜像
+* docker build -t=lihao2333/tensorflow:v2 . %-t 是tag的意思
+* docker build -t ncsdk -f ./extras/docker/Dockerfile https://github.com/movidius/ncsdk.git#ncsdk2 用url中的环境
+* docker commit -a "runoob.com" -m "my apache" a404c6c174a2  mymysql:v1
+	* -a author
+	* -m comment
+	* -p 提交时暂停容器
+## 登录
+* docker login
+## 上传
+* docker push lihao2333/intel:v0
+## 保存与加载
+* docker save -o xx.tar lihao2333/intel:v3
+* docker load --input xx.tar
+

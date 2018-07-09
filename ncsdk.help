@@ -1,0 +1,8 @@
+##	 编译
+mvNCCompile xxx.meta -s 12 -in input -on output -o xxx.graph 
+* 这是tensorflow版本
+
+* -in -on 的参数为输入层和输出层的名称,定义方式如下:
+* x = tf.placeholder(tf.float32,[None,784],name="input")
+* output = tf.nn.softmax(y_conv,name="output")
+

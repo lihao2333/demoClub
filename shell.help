@@ -1,0 +1,5 @@
+## if
+* -a file exist
+* -d dir exist
+* -f normal exist 
+* -h link exist
