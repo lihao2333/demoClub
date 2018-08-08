@@ -1,0 +1,7 @@
+## views
+* from django.shortcuts import render
+   * render(request,".html",{}) 
+* from django.http import HttpResponse, HttpResponseRedirect
+    * HttpResponseRedirect(url_name)
+    * HttpResponse("<p>hello</p>")
+

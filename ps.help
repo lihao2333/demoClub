@@ -1,0 +1,26 @@
+## 进程
+#### 查看占用端口的进程
+* netstat -nap |grep 8000
+#### 查看服务的自启动状态
+* sysv-rc-conf --list apach
+## ssh
+#### 允许root远程
+* in `/etc/ssh/sshd_config`,PermitRootLogin yes
+* /etc/init.d ssh restart
+#### 删除警告
+* `ssh-keygen -f "/home/geek/.ssh/known_hosts" -R 10.112.133.166`
+
+## 公网服务器连接登录私网ssh
+* geek@127.0.0.1:	ssh -p 29306 -qngfNTR 6766:127.0.0.1:22 geek@23.105.194.46
+* geek@23.105.194.46:	ssh -p 6766 geek@127.0.0.1
+
+## server
+#### 启停服务
+* systemctl xxx httpd.service
+	* enable/disable:	自启动
+	* status	查看状态
+	* start/stop/restart	启动
+#### 查看
+* systemctl list-units --type=service
+#### 常用服务
+* firewalld, httpd

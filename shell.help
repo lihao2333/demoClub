@@ -3,3 +3,5 @@
 * -d dir exist
 * -f normal exist 
 * -h link exist
+* -z env null
+* alias <> 2/dev/null

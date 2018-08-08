@@ -1,0 +1,4 @@
+* nmap <ip>
+* nmap <ip>/24
+* nmap <ip1> <ip2>
+

@@ -1,0 +1,44 @@
+* {
+   margin:auto;
+   padding:0;
+  }
+.form{
+  width:454px;
+  height:42px;
+  background:rgba(0,0,0,.1);
+  padding:15px;
+  border:none;
+  border-radius:5px;
+}
+input{
+  width:342px;
+  height:42px;
+  background-color:#eeeeee;
+  border:none;
+  border-top-left-radius:5px;
+  border-bottom-left-radius:5px;
+  font: bold 15px 'lucida sans', 'trebuchet MS','Tahoma';
+  font-style:italic;
+}
+button{
+  width:112px;
+  height:42px;
+  background-color:#d93c3c;
+  color:#fff;
+  border:none;
+  border-top-left-radius:5px;
+  border-bottom-left-radius:5px;
+  position:relative;
+  font-size:16px;
+  font-weight: bold;
+}
+button:before{
+  content:"";
+  border-width:6px;
+  border-style:solid;
+  border-color: transparent #d93c3c transparent transparent;
+  position: absolute;
+  right:100%;
+  top:38%;
+}
+

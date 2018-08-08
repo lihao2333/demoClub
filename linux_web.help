@@ -1,0 +1,75 @@
+## service
+* /etc/init.d/networking restart
+* /etc/NetworkManager/NetworkManager.conf
+## ifconfig
+* ifconfig  -a  查看所有interface
+* ifconfig <interface> up/down
+* ifconfig eth1 hw ether 00:1D:1C:1D:1E //关闭网卡并修改MAC地址 
+* ifconfig eth0 192.168.1.56 netmask 255.255.255.0 broadcast 192.168.1.255 //配置IP层
+* ifconfig eth0 arp  //开启arp
+* ifconfig eth0 -arp  //关闭arp
+* ifconfig eth0 mtu 1500 //设置最大传输单元
+## 无线
+```
+iwconfig
+iwlist wlan0 scan|grep ESSID
+iwconfig wlan1 essid ChinaNet --no passwd
+iwconfig wlan0 essid ChinaNet key xxx-- passwd
+ifconfig wlan0 up
+```
+## dhcp
+```
+dhclient -r  要先释放
+dhclient wlan0 
+```
+## dns
+* /etc/resolv.conf
+* nmcli dev show
+
+## curl
+#### 查看
+* curl [url]
+* curl -L [url] 自动跳转
+* curl -i [url] 显示头信息
+* curl -v [url] 显示整个通信过程
+#### 下载
+curl -O [url] 以url中指定的默认文件名保存
+* curl -o [filename] [url] 指定保存文件名
+* curl -O [url1] -O [url2] 同时获取多个文件
+* curl -C -O [url1]  端点续传
+* curl -u ftpuser:ftppass -O ftp://url
+* curl -L [url].tar.gz | tar -C [path] -xz  下载压缩文件并且跳转到指定目录解压
+#### 发送
+curl [url]?data=xxx  %GET
+* curl -X POST --data "data=xxx" [url]  %POST
+* curl -X POST --data -urlencode "data=xxx" [url]  %POST 表单编码
+#### 添加公钥
+* curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - 
+	* -Ss 只有发生错误才输出
+	* -L  可跳转
+	* -f ?
+
+## iptables
+#### 增删改
+* iptables -L -n --line-numbers 查看
+* iptables -D INPUT 8 删除序号8
+
+#### 开放
+* iptables -A INPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT  
+* iptables -I INPUT -p tcp --dport 22 -j accept 
+* iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT 
+#### 屏蔽
+* iptables -A FORWARD -j REJECT
+* iptables -I INPUT -s 123.45.6.0/24 -j DROP 
+#### 清空
+iptables -F
+iptables -X
+iptables -Z
+
+## nmap
+* nmap -iL <file>  扫描ip池
+* nmap -sL 193.168.1.1/24 查看扫描的主机列表
+* namp xxx -excl>ude xxx
+	* xxx:file, ip, ip/24 192.168.1.1-100 
+
+

@@ -3,6 +3,10 @@
 * docker container rm xxx -f 删除一个运行状态的容器
 * docker container prune 删除所有终止的容器
 * docker rmi xx 删除镜像
+* docker stop $(docker ps -a -q) 停止所有容器
+* docker rm $(docker ps -a -q)  删除所有容器
+* docker rmi $(docker images | grep "^<none>" | awk "{print $3}") 删除所有没有tag的images
+* docker rmi $(docker images -q) 删除所有容器
 ## 查看
 * docker ps 查看所有运行中的容器
 * docker ps -a 查看所有容器
@@ -10,7 +14,7 @@
 * docker ps -l 列出最近一次启动的容器
 * docker images 列出所有镜像
 ## 运行
-* docker run -it --rm --name mycontain -v .../Models:/Models -v `pwd`:/workspace -w workspace  xxx/xxx  bin/bash 
+* docker run -it --rm --name mycontain -v .../Models:/Models -v `pwd`:/workspace -w workspace  xxx/xxx env LANG=C.UTF-8  bin/bash 
 * docker run -d  xx/xx 后台
 * docker run --rm --net=host --privileged -v /dev:/dev --name ncsdk -i -t ncsdk /bin/bash %因为涉及外设，挂载dev,并且赋予权限
 * docker run --rm -ti --entrypoint /bin/bash xxx -c ls 运行后自动执行
@@ -19,6 +23,7 @@
 * docker stop/start/kill/restart xxx
 * docker start -ai xxx
 ## 插入
+* docker start -attach xx 
 * docker attach xxx 附着到运行中的容器
 * docker exec -ti xxx /bin/bash 进入正在运行的容器的内部, 同时运行bash 比attach更好用
 * docker exec -ti xxx python manage.py runserver 进入正在运行的容器的内部, 运行命令
@@ -29,6 +34,7 @@
 	* -a author
 	* -m comment
 	* -p 提交时暂停容器
+* docker tag old-image:tag new-image:tag  % 镜像改名
 ## 登录
 * docker login
 ## 上传
@@ -36,4 +42,5 @@
 ## 保存与加载
 * docker save -o xx.tar lihao2333/intel:v3
 * docker load --input xx.tar
+
 

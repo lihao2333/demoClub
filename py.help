@@ -10,6 +10,9 @@
 * re.sub('content', 'style','geek_content.jpg') -- return geek_style.jpg
 * re.sub('.*\.', 'style','geek_content.jpg') -- return style.jpg 保持后缀不变替换文件名 
 * "content.jpg".replace("content","jpg")
+#### 提取字符
+* re_words = re.compile(u"[\u4e00-\u9fa5]+") #中文
+
 ## pandas
 #### 创建数据
 * dates=pd.date_range('20130101', periods=6)
@@ -57,3 +60,10 @@ if os.path.exists("dir") is False:
 
 ## temp
 * path = tempfile.mkdtemp()  返回临时路径
+
+## json
+```
+import json
+json.dumps({'a': 'Runoob', 'b': 7}, sort_keys=True, indent=4, separators=(',', ': '))
+json.loads('{"a":1,"b":2}')
+```

@@ -1,28 +1,59 @@
-## clone其他分支
-* git branch -a 先查看当前远端分支情况
-* git clone -b <branch> <url> clone 指定分支
 ## tag
-* git tag
 * git tag -l "v1.8.5"
 * git tag -a v1.4 -m "my vesrion 1,4"
 * git show v1.4
-## sub module
-* git submodule add <url> <moduname>
-* git clone --recurse-submodules <url>
-* git submodule foreach git push origin master   递归push
 
 ## 从所有提交中删除文件
-#### way1
-* git filter-branch --index-filter "git rm -rf --cached --ignore-unmatch file_name.txt" HEAD
-* rm -rf .git/refs/original/
-* git reflog expire --all
-* git gc --aggressive --prune
-* git filter-branch --prune-empty 删除空日志
-* git push --force origin <branch>
-#### way 2
 * echo "*.pyc">>.gitignore
 * git rm --cached -r *.pyc
 * git commit -m "delete *.pyc"
-* git push origin master
 
-
+# base
+## 创建版本库
+* git clone <url>
+* git clone --recurse-submodules <url>
+* git clone -b <branch> <url> //clone指定分支
+* git submodule add <url> <moduname>
+* git init
+## 修改和提交
+* git status
+* git diff
+* git add . //跟踪所有改动过的文件
+* git add <file> //跟踪指定的文件
+* git mv <old> <new> // 文件改名
+* git rm <file>
+* git rm --cached <file>  //从所有记录中删除
+* git commit -m "xxx"
+* git commit --amend    //修改最后一次提交
+## 查看历史提交
+* git log
+* git log -p <file>
+* git blame <file> //列表形式查看指定文件的提交历史
+## 撤销
+* git reset --hard HEAD
+* git checkout HEAD <file> //撤销指定的未提交的文件的修改内容
+* git revert <commit>
+## 分支与标签
+* git branch
+* git branch -a //查看远端分支
+* git checkout <branch/tag>
+* git branch <newbranch>
+* git branch -d <branch>
+* git tag
+* git tag <tagname>
+* git tag -d <tagname>
+* git push origin --tags  //将本地所有tag push
+## 合并
+* git merge <branch>
+* git rebase <branch>
+## 远程
+* git remote -v
+* git remote show <remote>
+* git remote add <remote> <url>
+* git fetch <remote>
+* git pull <remote> <branch>
+* git push <remote> <branch>
+* git push <remote>:<tagname>
+* git push --tags //上传所有标签
+* git push --force <remote> <branch>
+* git submodule foreach git push origin master   //递归push

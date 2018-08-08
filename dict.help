@@ -1,0 +1,19 @@
+## 路径
+* /etc/dictd
+	* dictd.conf
+* /var/lib/dictd
+	* db.list 		管理字典，自动生成
+* /usr/sbin/dictd
+## 常用命令
+* dict -I	查询字典
+* dict -d langdao-ec penguin 选择字典查询单词
+
+##sdcv(startdict console version)
+#### 字典路径
+~/.stardict/dic
+#### 常用命令
+* sdcv -l 	
+* sdcv hello
+* sdcv
+* cat ~/.sdcv_history|tail
+

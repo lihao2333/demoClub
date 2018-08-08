@@ -2,6 +2,7 @@
 if [[ ! $@ =~ ^\-.+ ]]
 then
 
+  echo $DEMO_ROOT
   cat $DEMO_ROOT/$@.help 
 #  groff -me -Tutf8 -Kutf8 $DEMO_ROOT/$@.help |less -R
 fi

@@ -6,8 +6,7 @@
 * sp	横向分屏
 * vsp 	纵向分屏
 ####　切换窗口
-* <C+w+dir> 切换窗格
-* <C+wx> 切换到下一个窗格
+* <C+w+dir> 切换窗格 * <C+wx> 切换到下一个窗格
 #### 文件切换
 <C+6> 下一个文件
 :bn 下一个文件
@@ -22,3 +21,39 @@
 :b [num] 切换文件
 #### 关闭
 * qa 	关闭所有文件
+
+
+####　映射
+* nnoremap <C-J> <C-W><C-J>
+* 映射alt
+* `sed -n l`查看按键的真实输入
+* execute "set <M-j>=\ej"
+* nnoremap <M-j> xxx
+#### Plugin
+###### 安装
+* :PluginInstall
+* vim +PluginInstall +qall 
+###### 卸载不需要的
+* BundleClean
+###### 其他
+* BundleUpdata
+* BundleList
+
+## search&replace
+* s/Professor/Teacher/gc --询问．　y/n/a/q/l/<c-e>/<c-y>
+* /FROM/,/;/s/=/<>/g
+* /foo\c --大小写不敏感
+* g/^$/d   删除空白行
+* s/\v(\w+)\s+(\w+)/\2\t\1 ---a b->b a
+* %s/^/\=(line(".")-1)."\t" ---每行加行号
+* %s/\v<\d+>/"\1" --给所有数字加引号
+* hlsearch
+## sort
+* 10,20sort! n  --10到20行逆序排列数字
+## 转义
+* \v	--一切皆正则
+* \m	--除了^$.* 一切皆正则
+
+## 格式化
+#### json
+%!python -m json.tool

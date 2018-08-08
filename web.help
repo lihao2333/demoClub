@@ -19,4 +19,13 @@
 #### condition 
 * `{% if xxx and yyy %}...{% elif xxx %} ... {% else %} ...{% endif %}`
 * `{% for xx in xxx %}.{{xx.y}}..{% endfor %}`
+## 摄像头
+```
+function hasGetUserMedia() {
+  return !!(navigator.mediaDevices &&
+    navigator.mediaDevices.getUserMedia);
+}
+```
 
+## js
+* unescape  非转义
