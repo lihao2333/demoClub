@@ -1,0 +1,6 @@
+wget -c -r -np -k -L -p [url] //断点续传,递归且不会提升到父目录, 本地格式化,下载所有需要的依赖
+wget -O [name] [url]
+wget -c [url]   断电续传
+wget -mirror -p --convert-links -P ./LOCAL [url]
+wget --ftp-user=USERNAME --ftp-password=PASSWORD url
+    

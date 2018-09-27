@@ -1,0 +1,12 @@
+curl [url]
+curl -o name [url]
+curl -O  [url]
+curl -O [url1] -O [URL3]
+curl -L [url]   //重定向
+curl -C -O [url] //断电续传
+curl -x [proxip]:[proxyport] [url]
+curl -D [filename] [url] //存储cookie
+curl -u [name] [url] //get
+curl -u [name] --data [data] [url] //post
+
+asdfasfa

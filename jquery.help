@@ -1,0 +1,52 @@
+// vim: filetype=javascript 
+# 对匹配文本页首页尾的处理方式
+var lines = content.split("\n"),
+pattern = /\[\d{2}:\d{2}.\d{2}\]/g;
+while(!partten.test(lines[0])){lines = lines.slice(1);}
+lines[lines.length-1].length === 0 && lines.pop();
+
+
+# list
+## 遍历
+$.each(list, function(data, index){...})
+
+
+# string
+## 提取
+string.substring(0,string.indexOf('x')) 第一个字符到第一个x
+## 栈
+push[压到第一个], pop[弹出最后一个元素]
+## 排序
+list.sort(a,b){return a[0]-b[0]}
+
+
+# 解析
+parseInt(xx, 10), parseFloat(xx)
+
+
+* 改变第部分个元素的属性
+$('li').eq(3).css('background-color','red')             改变单个元素属性
+$('li').slice(3,5).css('background-color','red')        改变块元素属性
+
+* 设置属性
+$('#xx').attr(src,Alist[index])
+
+* 数组
+list.pop();     弹出list的最后一个元素
+
+* json定位
+list = [{"doc":{"id":xxx,"name":yyy}},{"doc":{"id":xxx,"name":yyy}}]
+$.each(list, function(key,val){
+    if(val.doc.id=="xxx"){
+      xxxxxxx;
+      return false;//break;
+    }
+    return true;
+}
+)
+
+* 条件语句的简便写法
+condition1 && condition2 && do;
+
+* 在div中增加一个同类项
+$('#div').append('<p></p>')

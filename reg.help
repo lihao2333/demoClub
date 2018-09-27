@@ -1,0 +1,13 @@
+# 相关参数
+/i  忽略大小写
+/g  全文查找出现的所有匹配字符
+/m  多行查找
+
+# 忽略非正则行的技巧(jquery)
+```
+while(!partten.test(line)){
+    line = line.slice(1)
+}
+```
+
+
